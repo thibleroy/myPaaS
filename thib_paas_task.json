@@ -1,0 +1,112 @@
+{
+  "Job": {
+    "Stop": false,
+    "Region": null,
+    "Namespace": null,
+    "ID": "thib_test_paas",
+    "ParentID": null,
+    "Name": "thib_test_paas",
+    "Type": null,
+    "Priority": 50,
+    "AllAtOnce": null,
+    "Datacenters": [
+      "dc1"
+    ],
+    "Constraints": null,
+    "Affinities": null,
+    "TaskGroups": [
+      {
+        "Name": "thib_group",
+        "Count": 1,
+        "Constraints": null,
+        "Affinities": null,
+        "Tasks": [
+          {
+            "Name": "mytask",
+            "Driver": "docker",
+            "User": "",
+            "Config": {
+              "args": [
+                "https://github.com/LouisonGitzinger/basic_node",
+                "app"
+              ],
+              "image": "thibleroy/mynode:latest",
+              "port_map": [
+                {
+                  "http": 12345
+                }
+              ]
+            },
+            "Constraints": null,
+            "Affinities": null,
+            "Env": null,
+            "Services": null,
+            "Resources": {
+              "CPU": 100,
+              "MemoryMB": 256,
+              "DiskMB": null,
+              "Networks": [
+                {
+                  "Mode": "",
+                  "Device": "",
+                  "CIDR": "",
+                  "IP": "148.60.11.178",
+                  "MBits": 200,
+                  "ReservedPorts": [
+                    {
+                      "Label": "http",
+                      "Value": 12346
+                    }
+                  ],
+                  "DynamicPorts": null
+                }
+              ],
+              "Devices": null,
+              "IOPS": null
+            },
+            "Meta": null,
+            "KillTimeout": null,
+            "LogConfig": null,
+            "Artifacts": null,
+            "Vault": null,
+            "Templates": null,
+            "DispatchPayload": null,
+            "VolumeMounts": null,
+            "Leader": false,
+            "ShutdownDelay": 0,
+            "KillSignal": "",
+            "Kind": ""
+          }
+        ],
+        "Spreads": null,
+        "Volumes": null,
+        "RestartPolicy": null,
+        "ReschedulePolicy": null,
+        "EphemeralDisk": null,
+        "Update": null,
+        "Migrate": null,
+        "Networks": null,
+        "Meta": null,
+        "Services": null
+      }
+    ],
+    "Update": null,
+    "Spreads": null,
+    "Periodic": null,
+    "ParameterizedJob": null,
+    "Dispatched": false,
+    "Payload": null,
+    "Reschedule": null,
+    "Migrate": null,
+    "Meta": null,
+    "VaultToken": null,
+    "Status": null,
+    "StatusDescription": null,
+    "Stable": null,
+    "Version": null,
+    "SubmitTime": null,
+    "CreateIndex": null,
+    "ModifyIndex": null,
+    "JobModifyIndex": null
+  }
+}
