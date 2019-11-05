@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>client paas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<p>Entrez la valeur :</p>
+<input type="text" id="git">
+<button id="valider"> Valider</button>
+</body>
+<script type="text/javascript">
+    $('button').click(() => {
+        const datasend = JSON.stringify({
+            message: $('#git').val()
+        });
+        $.ajax({
+            url:'http://rayonx.machine.deuxfleurs.fr:12346/form',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: datasend
+        });
+    });
+</script>
+</html>
