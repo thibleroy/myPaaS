@@ -12,7 +12,7 @@ offset.fetch([{ topic: 'thibtopic', partition: 0, time: -1 }], function (err, da
 var consumer = new kafka.Consumer(
     consumerClient,
     [
-        { topic: 'myTopic', partition: 0, fromOffset: -1 }
+        { topic: 'thibtopic', partition: 0, fromOffset: -1 }
     ],
     {
         autoCommit: false
