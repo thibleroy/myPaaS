@@ -39,6 +39,7 @@ io.on('connection', function (socket) {
         }
     });
     instances.consumer.on('message', function (message) {
+
         console.log(message);
         const parsed = JSON.parse(message.value);
         // console.log('parsed interface : ', parsed);

@@ -21,6 +21,23 @@ const CaddyConf = {
         'Content-Type': 'application/JSON',
     }
 };
+const consumer = new Consumer(
+    client,
+    [
+        { topic: this.topic, partitions: 1, fromOffset: 'latest'}
+    ],
+    {autoCommit: false}
+);
+const offset = new kafka.Offset(consumer);
+
+const p = new Promise((resolve) => {
+    offset.fetchLatestOffsets(['thibtopic'], function (error, offsets) {
+        resolve(offsets['thibtopic'][0]);
+    });
+});
+let lastOffset = null;
+p.then((offset) => lastOffset = offset);
+exports.lastOffset = lastOffset;
 exports.client = client;
 exports.Consumer = Consumer;
 exports.producer = producer;
@@ -30,13 +47,7 @@ exports.NomadGetConf = {...NomadConf, method: 'GET'};
 exports.deployTaskJson = JSON.parse(deployTaskdata);
 exports.proxyConf = {"@id": "", match: [{host: [""]}], handle: [{handler: "subroute", routes: [{handle: [{handler: "reverse_proxy", upstreams: [{dial: ""}]}], match: [{path: ["/"]}]}]}]};
 exports.topic = 'thib_topic';
-exports.consumer = new Consumer(
-    client,
-    [
-        { topic: this.topic, partitions: 1, fromOffset: 'latest'}
-    ],
-    {autoCommit: false}
-);
+exports.consumer = consumer;
 exports.CaddyPostConf = {...CaddyConf, method: 'POST', path: '/config/apps/http/servers/main/routes'};
 exports.CaddyGetConf = {...CaddyConf, method: 'GET'};
 exports.CaddyDeleteConf = {...CaddyConf, method: 'DELETE'};
