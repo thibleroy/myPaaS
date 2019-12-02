@@ -10,7 +10,7 @@ offset.fetchLatestOffsets(['thibtopic'], function (error, offsets) {
 var consumer = new kafka.Consumer(
     consumerClient,
     [
-        { topic: 'thibtopic', partition: 0}
+        { topic: 'thibtopic', partition: 0, fromOffset: 4}
     ],
     {
         autoCommit: false
