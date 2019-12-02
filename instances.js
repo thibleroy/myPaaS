@@ -33,7 +33,7 @@ exports.topic = 'thib_topic';
 exports.consumer = new Consumer(
     client,
     [
-        { topic: this.topic, partitions: 1, fromOffset: -1}
+        { topic: this.topic, partitions: 1, fromOffset: 'latest'}
     ],
     {autoCommit: false}
 );
