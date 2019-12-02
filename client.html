@@ -4,24 +4,72 @@
     <meta charset="UTF-8">
     <title>client paas</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-<p>Entrez la valeur :</p>
-<input type="text" id="git">
-<button id="valider"> Valider</button>
+<b>Mes applications</b> <br>
+<ul id="list"></ul>
+<button id="refresh">Refresh</button><br>
+<b>Déployer une nouvelle app</b><br>
+Entrez l'url du repo : <input type="text" id="git"><br>
+Entrez le nom de votre application : <input type="text" id="id"><br>
+<button id="valider"> Valider</button><br>
 </body>
 <script type="text/javascript">
-    $('button').click(() => {
-        const datasend = JSON.stringify({
-            message: $('#git').val()
-        });
-        $.ajax({
-            url:'http://148.60.11.178:12346/form',
-            type: 'post',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: datasend
-        });
+    const socket = io.connect('http://rayonx.machine.deuxfleurs.fr:12346/');
+    socket.emit('paas', {
+        action: 'list'
     });
+    socket.on('paas_nomad', function (data) {
+        console.log(data.type, data.value);
+        switch(data.type) {
+            case 'list':
+                data.value.forEach((app1) => {
+                    const app = JSON.parse(app1);
+                    if (!$('#list').text().includes(app.ID)){
+                        switch (app.Status) {
+                            case 'dead':
+                                $('#list').append(`<li> Name : ${app.Name} ID : ${app.ID} Status : ${app.Status}</li>`)
+                                break;
+                            default:
+                                $('#list').append(`<li> Name : ${app.Name} ID : ${app.ID} Status : ${app.Status} <button id=${app.ID}>Stop</button> </li>`);
+                                $(`#${app.ID}`).on('click', (e) => {
+                                    if (confirm('Stopper : ' + e.target.id + ' ?')){
+                                        socket.emit('paas', {
+                                            action: 'stop',
+                                            id: e.target.id
+                                        });
+                                    }
+                                    else console.log('aborted');
+                                });
+                                break;
+                        }
+                        }
+                });
+                break;
+            default:
+
+                break;
+        }
+    });
+    $('#valider').click(() => {
+        const repo = $('#git').val();
+        const id = $('#id').val();
+        if ((repo !== '')&&(id !== '')){
+            if (confirm('repo : ' + repo + 'et id :' + id + ' ?')){
+                socket.emit('paas', {
+                    action: 'start',
+                    repository: repo,
+                    id: 'thib_' + id
+                });
+            }
+        }
+    });
+
+
+    $('#refresh').click(() => {
+        $('li').remove();
+    });
+
 </script>
 </html>
