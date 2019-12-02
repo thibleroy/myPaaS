@@ -1,0 +1,36 @@
+{
+  "@id": "thibreverseproxy",
+  "match": [
+    {
+      "host": [
+        "thibault.esir.deuxfleurs.fr"
+      ]
+    }
+  ],
+  "handle": [
+    {
+      "handler": "subroute",
+      "routes": [
+        {
+          "handle": [
+            {
+              "handler": "reverse_proxy",
+              "upstreams": [
+                {
+                  "dial": "148.60.11.178:30423"
+                }
+              ]
+            }
+          ],
+          "match": [
+            {
+              "path": [
+                "/"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

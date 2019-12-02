@@ -1,20 +1,26 @@
 {
-  "name": "td4",
+  "name": "td6-thibleroy",
   "version": "1.0.0",
-  "description": "",
-  "main": "client.js",
+  "description": "== # Cloud pour l'IoT ==",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "browserify": "browserify"
+    "start": "node leroy_thibault_paas_v2.js & node leroy_thibault_client_interface.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ESIR-IOT-3/td6-thibleroy.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+  "bugs": {
+    "url": "https://github.com/ESIR-IOT-3/td6-thibleroy/issues"
   },
-  "devDependencies": {
-    "browserify": "^16.5.0"
+  "homepage": "https://github.com/ESIR-IOT-3/td6-thibleroy#readme",
+  "dependencies": {
+    "@types/node": "^12.12.14",
+    "express": "^4.17.1",
+    "kafka-node": "^5.0.0",
+    "socket.io": "^2.3.0"
   }
 }
