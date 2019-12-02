@@ -36,12 +36,10 @@ const p = new Promise((resolve) => {
         resolve(offsets[topic][0]);
     });
 });
-let lastOffset = null;
 p.then((offset) => {
     console.log('offset', offset);
-    lastOffset = offset
+    exports.lastOffset = offset
 });
-exports.lastOffset = lastOffset;
 exports.client = client;
 exports.Consumer = Consumer;
 exports.producer = producer;
