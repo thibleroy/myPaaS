@@ -37,7 +37,10 @@ const p = new Promise((resolve) => {
     });
 });
 let lastOffset = null;
-p.then((offset) => lastOffset = offset);
+p.then((offset) => {
+    console.log('offset', offset);
+    lastOffset = offset
+});
 exports.lastOffset = lastOffset;
 exports.client = client;
 exports.Consumer = Consumer;
