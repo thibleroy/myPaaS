@@ -4,7 +4,7 @@ const client = new kafka.KafkaClient({kafkaHost: '148.60.11.202:9092'});
 const consumer = new Consumer(
     client,
     [
-        { topic: this.topic, partitions: 1, fromOffset: -1}
+        { topic: 'thibtopic', partitions: 1, fromOffset: -1}
     ],
     {autoCommit: false}
 );
