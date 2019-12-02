@@ -47,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leroy_thibault_consumer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="15">
+              <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -89,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/instances.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="70" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="70" />
+              <caret line="1" column="36" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -175,12 +175,12 @@
       <option name="presentableId" value="Default" />
       <updated>1572991426271</updated>
       <workItem from="1572991427540" duration="262000" />
-      <workItem from="1575296077672" duration="3084000" />
+      <workItem from="1575296077672" duration="3141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3346000" />
+    <option name="totallyTimeSpent" value="3403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="798" extended-state="0" />
@@ -277,14 +277,14 @@
     <entry file="file://$PROJECT_DIR$/instances.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="70" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="70" />
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leroy_thibault_consumer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state relative-caret-position="15">
+          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
         </state>
       </provider>
     </entry>

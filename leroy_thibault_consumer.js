@@ -1,5 +1,5 @@
 const kafka = require('kafka-node');
-var consumerClient = new kafka.Client({kafkaHost: '148.60.11.202:9092'});
+var consumerClient = new kafka.KafkaClient({kafkaHost: '148.60.11.202:9092'});
 
 /* Print latest offset. */
 var offset = new kafka.Offset(consumerClient);
