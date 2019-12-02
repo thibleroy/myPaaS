@@ -5,7 +5,7 @@ var consumerClient = new kafka.KafkaClient({kafkaHost: '148.60.11.202:9092'});
 var offset = new kafka.Offset(consumerClient);
 
 offset.fetch([{ topic: 'thibtopic', partition: 0, time: -1 }], function (err, data) {
-    var latestOffset = data['myTopic']['0'][0];
+    var latestOffset = data['thibtopic']['0'][0];
     console.log("Consumer current offset: " + latestOffset);
 });
 
