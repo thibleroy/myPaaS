@@ -6,7 +6,7 @@ const fs = require('fs');
 const Producer = kafka.Producer;
 const deployTaskdata = fs.readFileSync('thib_paas_task.json', 'utf8');
 const producer = new Producer(client);
-const topic = 'thibtopic'
+const topic = 'thibtopic';
 const NomadConf = {
     hostname: '148.60.11.202',
     path: '/v1/jobs',
@@ -25,7 +25,7 @@ const CaddyConf = {
 const consumer = new Consumer(
     client,
     [
-        { topic: this.topic, partitions: 1, fromOffset: 'latest'}
+        { topic: topic, partitions: 1, fromOffset: 'latest'}
     ],
     {autoCommit: false}
 );
