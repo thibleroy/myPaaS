@@ -29,7 +29,7 @@ const consumer = new Consumer(
     ],
     {autoCommit: false}
 );
-const offset = new kafka.Offset(consumer);
+const offset = new kafka.Offset(client);
 
 const p = new Promise((resolve) => {
     offset.fetchLatestOffsets([topic], function (error, offsets) {
