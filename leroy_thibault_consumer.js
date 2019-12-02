@@ -4,11 +4,9 @@ var consumerClient = new kafka.KafkaClient({kafkaHost: '148.60.11.202:9092'});
 /* Print latest offset. */
 var offset = new kafka.Offset(consumerClient);
 
-offset.fetchLatestOffsets(['thibtopic'], (error, offsets) => {
-    const latestOffset = offsets['thibtopic'][0];
-    consumer.setOffset('thibtopic', 0, latestOffset);
+offset.fetchLatestOffsets(['thibtopic'], function (error, offsets) {
+    console.log(offsets['thibtopic'][0]);
 });
-
 var consumer = new kafka.Consumer(
     consumerClient,
     [
