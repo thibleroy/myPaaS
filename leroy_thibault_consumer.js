@@ -9,7 +9,7 @@ offset.fetch([{ topic: 'thibtopic', partition: 0, time: -1 }], function (err, da
     console.log("Consumer current offset: " + latestOffset);
 });
 
-var consumer = new kafka.HighLevelConsumer(
+var consumer = new kafka.Consumer(
     consumerClient,
     [
         { topic: 'myTopic', partition: 0, fromOffset: -1 }
@@ -20,4 +20,4 @@ var consumer = new kafka.HighLevelConsumer(
 );
 consumer.on('message', (message) => {
     console.log('message :', message);
-})
+});
