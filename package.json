@@ -19,7 +19,7 @@
   "homepage": "https://github.com/ESIR-IOT-3/td6-thibleroy#readme",
   "dependencies": {
     "@types/node": "^12.12.14",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "kafka-node": "^5.0.0",
     "socket.io": "^2.3.0"
   }
